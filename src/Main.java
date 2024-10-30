@@ -9,8 +9,16 @@ public class Main {
      */
     public static int[] combine(int[] array1, int[] array2) {
 
-        return null;
-
+        int[] combinedArray = new int[array1.length + array2.length];
+        for(int i = 0; i <array1.length + array2.length; i++){
+            if (i < array1.length) {
+                combinedArray[i] = array1[i];
+            }
+            else {
+                combinedArray[i] = array2[i - array1.length];
+            }
+        }
+        return combinedArray;
     }
 
     /**
@@ -21,8 +29,16 @@ public class Main {
      * zip(myArray1, myArray2) → {1,2,3,4,5,6,7,8,9,10}
      */
     public static int[] zip(int[] array1, int[] array2) {
-
-        return null;
+        int[] zipArray = new int[array1.length + array2.length];
+        for (int i = 0; i < array1.length + array2.length; i++){
+            if (i%2 == 0){
+                zipArray[i] = array1[i/2];
+            }
+            else {
+                zipArray[i] = array2[i/2];
+            }
+        }
+        return zipArray;
 
     }
 
@@ -34,8 +50,12 @@ public class Main {
      * product(myArray1, myArray2) → {2,12,30,56,90}
      */
     public static int[] product(int[] array1, int[] array2) {
+        int[] product = new int[array1.length];
+        for (int i = 0; i < array1.length; i++){
+            product[i] = array1[i] * array2[i];
+        }
 
-        return null;
+        return product;
 
     }
 
@@ -56,14 +76,24 @@ public class Main {
      * capitalCount(words) → {1, 2, 2, 0}
      */
     public static int[] capitalCount(String[] words) {
+        int[] results = new int[words.length];
+        for (int i = 0; i < words.length; i++){
+            results[i] = countCapitalLetters(words[i]);
+        }
 
-        return null;
+        return results;
 
     }
 
     public static int countCapitalLetters(String word) {
+        int count = 0;
+        for (int i = 0; i < word.length(); i++) {
+            if ( (int) word.charAt(i) >= 65 && (int) word.charAt(i) <= 90 ){
+                count++;
+            }
+        }
 
-        return 0;
+        return count;
 
     }
 
